@@ -1,9 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 class Users(models.Model):
     User_id=models.AutoField(primary_key=True)
     FullName = models.CharField(max_length=100)
-    Email = models.CharField(max_length=100)
+    Email = models.EmailField(max_length=100)
     Password = models.CharField(max_length=100)
     Phone = models.CharField(max_length=100)
 

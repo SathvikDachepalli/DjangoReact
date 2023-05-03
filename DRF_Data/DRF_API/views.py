@@ -40,7 +40,7 @@ class UsersViewSet(APIView):
             else:
                 return Response({'Code':0,"Message":"Incorrect Email or Password"},status=201)
                 
-
+    
     
 class EventsViewSet(APIView):
     def get(self, request, *args, **kwargs):
@@ -140,14 +140,3 @@ class CreatedEventsViewSet(APIView):
         result.delete()
         return Response("Created Event deleted",status=200)
 
-class LogoutView(APIView):
-     permission_classes = (IsAuthenticated,)
-     def post(self, request):
-          
-          try:
-               refresh_token = request.data["refresh_token"]
-               token = RefreshToken(refresh_token)
-               token.blacklist()
-               return Response(status=status.HTTP_205_RESET_CONTENT)
-          except Exception as e:
-               return Response(status=status.HTTP_400_BAD_REQUEST)

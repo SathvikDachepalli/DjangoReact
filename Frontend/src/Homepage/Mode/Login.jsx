@@ -9,6 +9,7 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import withStyles from '@material-ui/core/styles/withStyles';
 import styled from 'styled-components'
+import { Navigate } from 'react-router-dom';
 
 
 const styles = theme => ({
@@ -48,7 +49,8 @@ const Login = (props) => {
       alert(data['Message'])
     }
     if(data['Code']==1){
-      alert(data['Message'])
+      alert(data['Message']);
+      window.location.href = "/";
     }
   })
   }
